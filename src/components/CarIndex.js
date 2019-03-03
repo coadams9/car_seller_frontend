@@ -1,6 +1,6 @@
 import React from 'react'
 import CarsCollection from '../containers/CarsCollection'
-import CarForm from './CarForm'
+// import CarForm from './CarForm'
 import { Search } from 'semantic-ui-react'
 import NavBar from './NavBar'
 

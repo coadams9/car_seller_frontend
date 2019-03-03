@@ -2,16 +2,14 @@ import React from 'react'
 
 
 
-class CarCard extends React.Component{
+const CarCard = props => {
 
 
-  render(){
+  return(
+    <div>
+    </div>
+  )
 
-    return(
-      <div>
-      </div>
-    )
-  }
 }
 
 
