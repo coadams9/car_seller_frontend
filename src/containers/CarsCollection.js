@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import React from 'react'
 // import CarCard from '../components/CarCard'
 // import CarForm from '../components/CarForm'
@@ -24,8 +24,7 @@ class CarsCollection extends React.Component {
 
 
 export default CarsCollection
-=======
-import React, from 'react'
+
 
 
 
@@ -117,4 +116,4 @@ import React, from 'react'
 //     results: [],
 //   })
 // }
->>>>>>> Comment work before weekend on new components
+
