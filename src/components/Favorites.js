@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card } from 'semantic-ui-react'
-import CarCard from './CarCard'
+// import CarCard from './CarCard.js'
 
 
 //=> Going to render cards here that are favorited passed down in props from CarIndex!!!
