@@ -1,6 +1,7 @@
 import React from 'react'
-import CarCard from '../components/CarCard'
+// import CarCard from '../components/CarCard'
 // import CarForm from '../components/CarForm'
+import CarCardGroup from '../components/CarCardGroup'
 
 
 
@@ -12,11 +13,9 @@ class CarsCollection extends React.Component {
 
     const { cars } = this.props
 
-    const allCars = cars.map(car => <CarCard car={car} key={car.id} id={car.id} />)
-
     return(
       <div>
-        {allCars}
+        <CarCardGroup cars={cars} />
       </div>
     )
   }
