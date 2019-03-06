@@ -36,15 +36,19 @@ class CarIndex extends React.Component {
     })
   }
 
+
+
+
   render(){
     const { cars, searchTerm, isLoading } = this.state
-
 
     const filteredCars = cars.filter(car => {
       return car.make.toLowerCase().includes(searchTerm.toLowerCase()) || car.modelMake.toLowerCase().includes(searchTerm.toLowerCase()) || car.year.toLowerCase().includes(searchTerm.toLowerCase()) || car.color.toLowerCase().includes(searchTerm.toLowerCase()) || car.price.toLowerCase().includes(searchTerm.toLowerCase()) || car.sellers[0].name.toLowerCase().includes(searchTerm.toLowerCase()) || car.sellers[0].email.toLowerCase().includes(searchTerm.toLowerCase())
     })
 
-    const favCars = 'blahhhh'
+    const favCars = cars.filter(car => {
+        return car.favorite === true;
+    })
 
     return(
       <div>
@@ -75,3 +79,15 @@ class CarIndex extends React.Component {
 }
 
 export default CarIndex
+
+// editCarFavs = (carId, bool) => {
+//   fetch(`https://localhost:3000/api/v1/cars/${carId}`,
+//     {method: "PATCH",
+//       headers: { "Content-Type": "application/json", "Accept": "application/json" },
+//       body: JSON.stringify({ favorite: bool })
+//   })
+//   .then(res => console.log(res.json()))
+//   .then(data => {
+//     this.setState({ favorite: data.bool })
+//   })
+// }
