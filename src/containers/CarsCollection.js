@@ -6,8 +6,8 @@ import CarCardGroup from '../components/CarCardGroup'
 
 
 
-class CarsCollection extends React.Component {
 
+class CarsCollection extends React.Component {
 
   render(){
 

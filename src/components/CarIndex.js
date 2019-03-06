@@ -14,10 +14,13 @@ class CarIndex extends React.Component {
     isLoading: false
   }
 
+  addCar = (car) => {
+    this.setState({
+      cars: [...this.state.cars, car]
+    })
+  }
+
   handleSearchChange = (e, { value }) => {
-    console.log(e)
-    console.log({value})
-    console.log(e.currentTarget)
     this.setState({ isLoading: true, searchTerm: value })
 
     setTimeout(() => {
@@ -34,7 +37,6 @@ class CarIndex extends React.Component {
   }
 
   render(){
-
     const { cars, searchTerm, isLoading } = this.state
 
 
@@ -47,25 +49,21 @@ class CarIndex extends React.Component {
     return(
       <div>
         <NavBar />
-
-        <Switch>
-          <Route path='/home' component={() => {
-            return(
-              <React.Fragment>
-              <Search placeholder='Search'
+        <Search placeholder='Search'
                 onSearchChange={this.handleSearchChange}
-                loading={isLoading} />
-                <CarsCollection cars={filteredCars} />
-              </React.Fragment>
-            )
+                loading={isLoading}/>
+                <br />
+        <Switch>
+          <Route exact path='/home' component={() => {
+            return <CarsCollection cars={filteredCars} />
           }} />
-          <Route path='/favs' component={() => {
+        <Route exact path='/favs' component={() => {
             return <Favorites favCars={favCars} />
           }} />
-          <Route path='/addcar' component={() => {
-            return <CarForm />
+        <Route exact path='/addcar' component={() => {
+            return <CarForm addCar={this.addCar}/>
           }} />
-          <Route path='/' component={() => {
+        <Route exact path='/' component={() => {
             return <CarsCollection cars={filteredCars} />
           }} />
         </Switch>
