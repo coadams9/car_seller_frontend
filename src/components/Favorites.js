@@ -6,7 +6,7 @@ import CarCard from './CarCard'
 class Favorites extends React.Component {
     
     render() {
-        const showFavs = this.props.favCars.map(car => <CarCard car={car} key={car.id} id={car.id} />)
+        const showFavs = this.props.favCars.map(car => <CarCard car={car} />)
 
         return (
             <Card.Group itemsPerRow={5}>
@@ -18,6 +18,7 @@ class Favorites extends React.Component {
 
 
 export default Favorites
+// const showFavs = this.props.favCars.map(car => <CarCard car={car} key={car.id} id={car.id} />)
 
 
 // import React from 'react'
@@ -37,8 +38,8 @@ export default Favorites
 
         // return (
             // <div>
-                {/* <CarCardGroup cars={cars} /> */}
-            {/* </div> */}
+                /* <CarCardGroup cars={cars} /> */
+            /* </div> */
         // )
     // }
 // }
@@ -105,86 +106,3 @@ export default Favorites
 //     }
 //
 //     return(
-//         <div style={style}>
-//            <h2>{this.props.username}'s Favorites</h2>
-//           <Grid relaxed columns={4}>
-//             <Grid.Row>
-//               <Grid.Column>
-//                 {allFaves[0]}
-//               </Grid.Column>
-//               <Grid.Column>
-//                 {allFaves[1]}
-//               </Grid.Column>
-//               <Grid.Column>
-//                 {allFaves[2]}
-//               </Grid.Column>
-//               <Grid.Column>
-//                 {allFaves[3]}
-//               </Grid.Column>
-//             </Grid.Row>
-//
-//             <Grid.Row>
-//               <Grid.Column>
-//                 {allFaves[4]}
-//               </Grid.Column>
-//               <Grid.Column>
-//                 {allFaves[5]}
-//               </Grid.Column>
-//               <Grid.Column>
-//                 {allFaves[6]}
-//               </Grid.Column>
-//               <Grid.Column>
-//                 {allFaves[7]}
-//               </Grid.Column>
-//             </Grid.Row>
-//
-//             <Grid.Row>
-//               <Grid.Column>
-//                 {allFaves[8]}
-//               </Grid.Column>
-//               <Grid.Column>
-//                 {allFaves[9]}
-//               </Grid.Column>
-//               <Grid.Column>
-//                 {allFaves[10]}
-//               </Grid.Column>
-//               <Grid.Column>
-//                 {allFaves[11]}
-//               </Grid.Column>
-//             </Grid.Row>
-//
-//             <Grid.Row>
-//               <Grid.Column>
-//                 {allFaves[12]}
-//               </Grid.Column>
-//               <Grid.Column>
-//                 {allFaves[13]}
-//               </Grid.Column>
-//               <Grid.Column>
-//                 {allFaves[14]}
-//               </Grid.Column>
-//               <Grid.Column>
-//                 {allFaves[15]}
-//               </Grid.Column>
-//             </Grid.Row>
-//
-//             <Grid.Row>
-//               <Grid.Column>
-//                 {allFaves[16]}
-//               </Grid.Column>
-//               <Grid.Column>
-//                 {allFaves[17]}
-//               </Grid.Column>
-//               <Grid.Column>
-//                 {allFaves[18]}
-//               </Grid.Column>
-//               <Grid.Column>
-//                 {allFaves[19]}
-//               </Grid.Column>
-//             </Grid.Row>
-//           </Grid>
-//         </div>
-//     )
-//   }
-// }
-

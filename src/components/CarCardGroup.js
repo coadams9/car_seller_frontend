@@ -8,7 +8,8 @@ class CarCardGroup extends React.Component {
 
   render(){
     const { cars } = this.props
-    const allCars = cars.map(car => <CarCard car={car} key={car.id} id={car.id} />)
+    const allCars = cars.map(car => <CarCard car={car} key={car.id} />)
+    console.log(allCars)
 
     return(
       <Card.Group itemsPerRow={5}>

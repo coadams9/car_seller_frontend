@@ -31,19 +31,8 @@ class CarIndex extends React.Component {
   }
 
   
-  editCarFavs = (carId, bool) => {
-    fetch(`https://localhost:3000/api/v1/cars/${carId}`,
-      {method: "PATCH",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: JSON.stringify({ favorite: bool })
-    })
-    .then(res => console.log(res.json()))
-    .then(data => {
-      this.setState({ favorite: data.bool })
-    })
-  }
-
-
+  
+  
   render(){
     const { cars, searchTerm, isLoading } = this.state
 
@@ -61,7 +50,7 @@ class CarIndex extends React.Component {
 
         <Switch>
           <Route path='/home' component={() => {
-            return(
+              return(
               <React.Fragment>
               <Search placeholder='Search'
                 onSearchChange={this.handleSearchChange}
@@ -69,22 +58,34 @@ class CarIndex extends React.Component {
                 <CarsCollection cars={filteredCars} />
               </React.Fragment>
             )
-          }} />
+        }} />
           <Route path='/favs' component={() => {
-            return <Favorites favCars={favCars} />
+              return <Favorites favCars={favCars} />
           }} />
           <Route path='/addcar' component={() => {
             return <CarForm />
           }} />
           <Route path='/' component={() => {
-            return <CarsCollection cars={filteredCars} />
+              return <CarsCollection cars={filteredCars} />
           }} />
         </Switch>
       </div>
     )
   }
-
+  
 
 }
 
 export default CarIndex
+
+// editCarFavs = (carId, bool) => {
+//   fetch(`https://localhost:3000/api/v1/cars/${carId}`,
+//     {method: "PATCH",
+//       headers: { "Content-Type": "application/json", "Accept": "application/json" },
+//       body: JSON.stringify({ favorite: bool })
+//   })
+//   .then(res => console.log(res.json()))
+//   .then(data => {
+//     this.setState({ favorite: data.bool })
+//   })
+// }
