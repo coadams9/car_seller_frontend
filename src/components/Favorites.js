@@ -4,14 +4,18 @@ import CarCard from './CarCard'
 
 
 class Favorites extends React.Component {
-    
+
+
     render() {
-        const showFavs = this.props.favCars.map(car => <CarCard car={car} />)
+      const { favCarArr } = this.props
+      console.log(favCarArr)
+
+      const showFavs = favCarArr.map(car => <CarCard car={car} />)
 
         return (
-            <Card.Group itemsPerRow={5}>
-                {showFavs}
-            </Card.Group>
+          <Card.Group itemsPerRow={5}>
+            {showFavs}
+          </Card.Group>
         )
     }
 }

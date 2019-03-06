@@ -8,11 +8,14 @@ import Favorites from './Favorites'
 
 class CarIndex extends React.Component {
 
+
   state = {
     cars: [],
     searchTerm: '',
-    isLoading: false
+    isLoading: false,
+    favorites: []
   }
+
 
   addCar = (car) => {
     this.setState({
@@ -34,22 +37,35 @@ class CarIndex extends React.Component {
     .then(data => {
       this.setState({ cars: data })
     })
+    this.fetchfavCars()
+  }
+
+  favCars = (car) => {
+    this.setState({
+      favorites: [...this.state.favorites, car]
+    })
+  }
+
+  fetchfavCars = () => {
+    fetch('http://localhost:3000/api/v1/cars')
+    .then(res => res.json())
+    .then(data => {
+      let favs = data.filter(car => car.favorite === true)
+      this.setState({ favorites: favs })
+    })
   }
 
 
 
 
   render(){
-    const { cars, searchTerm, isLoading } = this.state
+    const { cars, searchTerm, isLoading, favorites } = this.state
 
     const filteredCars = cars.filter(car => {
       return car.make.toLowerCase().includes(searchTerm.toLowerCase()) || car.modelMake.toLowerCase().includes(searchTerm.toLowerCase()) || car.year.toLowerCase().includes(searchTerm.toLowerCase()) || car.color.toLowerCase().includes(searchTerm.toLowerCase()) || car.price.toLowerCase().includes(searchTerm.toLowerCase()) || car.sellers[0].name.toLowerCase().includes(searchTerm.toLowerCase()) || car.sellers[0].email.toLowerCase().includes(searchTerm.toLowerCase())
     })
 
-    const favCars = cars.filter(car => {
-        return car.favorite === true;
-    })
-
+    console.log(this.state.favorites)
     return(
       <div>
         <NavBar />
@@ -59,10 +75,10 @@ class CarIndex extends React.Component {
                 <br />
         <Switch>
           <Route exact path='/home' component={() => {
-            return <CarsCollection cars={filteredCars} />
+            return <CarsCollection cars={filteredCars} favCars={this.favCars} />
           }} />
         <Route exact path='/favs' component={() => {
-            return <Favorites favCars={favCars} />
+            return <Favorites favCarArr={favorites}/>
           }} />
         <Route exact path='/addcar' component={() => {
             return <CarForm addCar={this.addCar}/>

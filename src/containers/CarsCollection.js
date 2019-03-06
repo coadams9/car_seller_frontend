@@ -12,11 +12,11 @@ class CarsCollection extends React.Component {
 
   render(){
 
-    const { cars } = this.props
+    const { cars, favCars } = this.props
 
     return(
       <div>
-        <CarCardGroup cars={cars} />
+        <CarCardGroup cars={cars} favCars={favCars}/>
       </div>
     )
   }
@@ -35,7 +35,7 @@ export default CarsCollection
 //     return {searches: [...prevSearches]}
 //   })
 // }
-// 
+//
 //  handleSubmit = () => {
 //    let search = this.state.searches
 //    fetch('https://eatup-back-end.herokuapp.com/api/v1/search',
@@ -116,4 +116,3 @@ export default CarsCollection
 //     results: [],
 //   })
 // }
-
